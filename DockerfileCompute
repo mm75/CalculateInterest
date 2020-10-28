@@ -1,0 +1,17 @@
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1-alpine AS build-env
+WORKDIR /app
+
+ADD src/Presentation/Compute/CalculateInterest.Compute.API ./src/Presentation/Compute/CalculateInterest.Compute.API/
+ADD src/Core/CalculateInterest.Core ./src/Core/CalculateInterest.Core/
+ADD src/Application/CalculateInterest.Application.DTO ./src/Application/CalculateInterest.Application.DTO/
+ADD src/Application/CalculateInterest.Application ./src/Application/CalculateInterest.Application/
+RUN ls
+RUN dotnet restore src/Presentation/Compute/CalculateInterest.Compute.API/CalculateInterest.Compute.API.csproj
+
+RUN dotnet publish src/Presentation/Compute/CalculateInterest.Compute.API -c Release -o out
+
+# Build da imagem
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-alpine
+WORKDIR /app
+COPY --from=build-env /app/out .
+ENTRYPOINT ["dotnet", "CalculateInterest.Compute.API.dll"]

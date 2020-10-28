@@ -1,20 +1,17 @@
 using System.Net.Mime;
+using CalculateInterest.Application.DTO.DTO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace CalculateInterest.API.Controllers
 {
     [ApiController]
-    [Route("calculajuros")]
-    public class ComputeController : ControllerBase
+    [Route("showmethecode")]
+    public class ShowMeTheCodeController : ControllerBase
     {
-        private readonly ILogger<ComputeController> _logger;
+        private readonly ILogger<ShowMeTheCodeController> _logger;
 
-        /// <summary>
-        /// Method responsible for initializing the controller.
-        /// </summary>
-        /// <param name="logger">The logger param.</param>
-        public ComputeController(ILogger<ComputeController> logger)
+        public ShowMeTheCodeController(ILogger<ShowMeTheCodeController> logger)
         {
             _logger = logger;
         }
@@ -23,12 +20,12 @@ namespace CalculateInterest.API.Controllers
         /// Method responsible for the action.
         /// </summary>
         /// <returns>The created <see cref="IActionResult"/> for the response.</returns>
-        /// [HttpGet]
+        [HttpGet]
         [Produces(MediaTypeNames.Application.Json)]
         [ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Get))]
-        public ActionResult Get()
+        public ActionResult<ShowMeTheCodeDTO> Index()
         {
-            return Ok();
+            return Ok(new ShowMeTheCodeDTO {UrlGitHub = "https://github.com/mm75/CalculateInterest"});
         }
     }
 }

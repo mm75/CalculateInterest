@@ -9,11 +9,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Compute", "Compute", "{686FBD61-1135-47D2-A01C-F08D8817974C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculateInterest.API", "src\Presentation\Compute\CalculateInterest.API\CalculateInterest.API.csproj", "{143F6389-F452-4E48-AC8D-559CD67A0BF4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculateInterest.Compute.API", "src\Presentation\Compute\CalculateInterest.Compute.API\CalculateInterest.Compute.API.csproj", "{143F6389-F452-4E48-AC8D-559CD67A0BF4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rate", "Rate", "{F7AFAA50-0C31-49B9-8861-EAF8DAC6A54C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculateInterest.API", "src\Presentation\Rate\CalculateInterest.API\CalculateInterest.API.csproj", "{9DAADE4E-1CD5-4DD5-8879-13865268378C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculateInterest.Rate.API", "src\Presentation\Rate\CalculateInterest.Rate.API\CalculateInterest.Rate.API.csproj", "{9DAADE4E-1CD5-4DD5-8879-13865268378C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{E3BE1258-F936-4A27-A0C1-B726EA4A8253}"
 EndProject
