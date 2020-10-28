@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Refit.HttpClientFactory" Version="5.2.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Application\CalculateInterest.Application.DTO\CalculateInterest.Application.DTO.csproj" />
+    <ProjectReference Include="..\..\..\Application\CalculateInterest.Application\CalculateInterest.Application.csproj" />
+  </ItemGroup>
+
+
+</Project>
