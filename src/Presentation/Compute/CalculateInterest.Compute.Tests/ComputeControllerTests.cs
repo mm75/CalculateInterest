@@ -1,0 +1,70 @@
+using System;
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
+using CalculateInterest.API;
+using CalculateInterest.Application.DTO.DTO;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.TestHost;
+using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json;
+using Xunit;
+using ApplicationException = CalculateInterest.Core.ApplicationException;
+
+namespace CalculateInterest.Compute.Tests
+{
+    public class ComputeControllerTests
+    {
+        private readonly HttpClient _httpClient;
+
+        public ComputeControllerTests()
+        {
+            IHostBuilder hostBuilder = new HostBuilder()
+                .ConfigureWebHost(webBuilder =>
+                {
+                    webBuilder.UseTestServer();
+                    webBuilder.UseStartup<Startup>();
+                });
+
+            IHost host = hostBuilder.Start();
+
+            _httpClient = host.GetTestClient();
+            
+            _httpClient.BaseAddress = new Uri("http://localhost:6005");
+        }
+        
+        [Fact(DisplayName = "Executar o cálculo da taxa de juros.")]
+        [Trait("Category", "Compute")]
+        public async Task Executar_Calculo_De_Juros()
+        {
+            // Arrange
+            HttpResponseMessage response = await _httpClient.GetAsync("calculajuros?initialValue=100&time=5");
+
+            // Act
+            string responseString = await response.Content.ReadAsStringAsync();
+
+            ComputeDTO result = JsonConvert.DeserializeObject<ComputeDTO>(responseString);
+
+            // Assert
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+            Assert.NotNull(result);
+            Assert.Equal(105.10, result.Result);
+        }
+        
+        [Fact(DisplayName = "Retornar erro ao validar se o valor inicial é menor ou igual a zero.")]
+        [Trait("Category", "Compute")]
+        public async Task Validar_Valor_Inicial_Menor_Ou_Igual_Zero_Retorna_Erro()
+        {
+            // Assert
+            await Assert.ThrowsAsync<ApplicationException>(() => _httpClient.GetAsync("calculajuros?initialValue=0&time=5"));
+        }
+        
+        [Fact(DisplayName = "Retornar erro ao validar se o mês é menor ou igual a zero.")]
+        [Trait("Category", "Compute")]
+        public async Task Validar_Mes_Menor_Ou_Igual_Zero_Retorna_Erro()
+        {
+            // Assert
+            await Assert.ThrowsAsync<ApplicationException>(() => _httpClient.GetAsync("calculajuros?initialValue=100&time=0"));
+        }
+    }
+}

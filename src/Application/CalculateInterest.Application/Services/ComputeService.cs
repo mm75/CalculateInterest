@@ -14,7 +14,7 @@ namespace CalculateInterest.Application.Services
             
             double calcResult = initialValue * Math.Pow((1 + rate), time);
 
-            return Math.Truncate(100 * calcResult) / 100;;
+            return Math.Truncate(100 * calcResult) / 100;
         }
     }
 }
