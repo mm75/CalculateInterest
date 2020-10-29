@@ -5,6 +5,6 @@ namespace CalculateInterest.Application.Interfaces
 {
     public interface IRunService
     {
-        Task<ComputeDTO> Run(double initialValue, int time);
+        Task<ComputeDto> Run(double initialValue, int time);
     }
 }

@@ -23,9 +23,9 @@ namespace CalculateInterest.Compute.API.Controllers
         [HttpGet]
         [Produces(MediaTypeNames.Application.Json)]
         [ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Get))]
-        public ActionResult<ShowMeTheCodeDTO> Index()
+        public ActionResult<ShowMeTheCodeDto> Index()
         {
-            return Ok(new ShowMeTheCodeDTO {UrlGitHub = "https://github.com/mm75/CalculateInterest"});
+            return Ok(new ShowMeTheCodeDto {UrlGitHub = "https://github.com/mm75/CalculateInterest"});
         }
     }
 }

@@ -21,6 +21,8 @@ namespace CalculateInterest.Rate.API
         {
             services.AddSwaggerConfiguration();
 
+            services.AddHealthChecks();
+
             services.AddControllers();
         }
 
@@ -39,6 +41,8 @@ namespace CalculateInterest.Rate.API
             app.UseAuthorization();
 
             app.UseSwaggerConfiguration();
+
+            app.UseHealthChecks("/health");
 
             app.UseEndpoints(endpoints =>
             {

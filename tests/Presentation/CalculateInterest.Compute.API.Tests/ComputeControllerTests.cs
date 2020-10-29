@@ -42,7 +42,7 @@ namespace CalculateInterest.Compute.API.Tests
             // Act
             string responseString = await response.Content.ReadAsStringAsync();
 
-            ComputeDTO result = JsonConvert.DeserializeObject<ComputeDTO>(responseString);
+            ComputeDto result = JsonConvert.DeserializeObject<ComputeDto>(responseString);
 
             // Assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);

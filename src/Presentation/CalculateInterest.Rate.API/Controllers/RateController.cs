@@ -27,9 +27,11 @@ namespace CalculateInterest.Rate.API.Controllers
         [HttpGet]
         [Produces(MediaTypeNames.Application.Json)]
         [ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Get))]
-        public ActionResult<RateDTO> Get()
+        public ActionResult<RateDto> Get()
         {
-            return Ok(new RateDTO {Value = 0.01});
+            _logger.LogInformation($"Buscando taxa de juros.");
+            
+            return Ok(new RateDto {Value = 0.01});
         }
     }
 }

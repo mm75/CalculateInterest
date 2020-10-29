@@ -1,6 +1,6 @@
 namespace CalculateInterest.Application.DTO.DTO
 {
-    public class ShowMeTheCodeDTO
+    public class ShowMeTheCodeDto
     {
         public string UrlGitHub { get; set; }
     }

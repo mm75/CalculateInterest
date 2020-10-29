@@ -8,18 +8,18 @@ Projeto desenvolvido para realizar cálculos de taxa de juros.
 Tem o objetivo de fornecer a taxa de juros.
 
 #### API - Compute
-Tem o objetivo de calcular o juros compostos.
+Tem o objetivo de calcular os juros compostos.
 
 ### Iniciando
-Use as intruções abaixo para executar o projeto.
+Use as instruções abaixo para executar o projeto.
 
 #### Requisitos
-Você precisará das seguintes ferramentas se desejar codificar algo:
+Você precisará das seguintes ferramentas para codificar algo:
 
 * [Visual Studio Code ou 2019](http://www.visualstudio.com/downloads/)
 * [.NET Core SDK 3.1](http://www.microsoft.com/net/download)
 
-Você precisará das seguintes ferramentas se desejar rodar o projeto usando docker:
+Você precisará das seguintes ferramentas executar o projeto usando docker:
 
 * [Docker](http://www.docker.com/)
 * [Docker-compose](http://docs.docker.com/compose/install/)

@@ -32,8 +32,10 @@ namespace CalculateInterest.Compute.API.Controllers
         [HttpGet]
         [Produces(MediaTypeNames.Application.Json)]
         [ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Get))]
-        public async Task<ActionResult<ComputeDTO>> Get(double initialValue, int time)
+        public async Task<ActionResult<ComputeDto>> Get(double initialValue, int time)
         {
+            _logger.LogInformation($"Realizando o cálculo da taxa de juros.");
+            
             return Ok(await _runService.Run(initialValue, time));
         }
     }

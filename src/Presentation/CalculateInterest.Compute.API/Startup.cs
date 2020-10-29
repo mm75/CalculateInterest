@@ -38,6 +38,8 @@ namespace CalculateInterest.Compute.API
             
             services.AddSwaggerConfiguration();
 
+            services.AddHealthChecks();
+
             services.AddResponseCompression();
             
             services.AddControllers();
@@ -58,6 +60,8 @@ namespace CalculateInterest.Compute.API
             app.UseAuthorization();
 
             app.UseSwaggerConfiguration();
+
+            app.UseHealthChecks("/health");
 
             app.UseEndpoints(endpoints =>
             {

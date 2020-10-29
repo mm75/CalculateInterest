@@ -27,13 +27,13 @@ namespace CalculateInterest.Application.Services
         /// <param name="initialValue"></param>
         /// <param name="time"></param>
         /// <returns></returns>
-        public async Task<ComputeDTO> Run(double initialValue, int time)
+        public async Task<ComputeDto> Run(double initialValue, int time)
         {
-            RateDTO rateDto = await _rateService.GetAsync();
+            RateDto rateDto = await _rateService.GetAsync();
 
             double result = _computeService.Calculate(initialValue, rateDto.Value, time);
 
-            return new ComputeDTO {Result = result};
+            return new ComputeDto {Result = result};
         }
     }
 }

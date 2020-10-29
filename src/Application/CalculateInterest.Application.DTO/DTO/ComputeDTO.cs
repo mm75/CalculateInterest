@@ -1,6 +1,6 @@
 namespace CalculateInterest.Application.DTO.DTO
 {
-    public class ComputeDTO
+    public class ComputeDto
     {
         public double Result { get; set; }
     }

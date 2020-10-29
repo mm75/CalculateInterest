@@ -41,7 +41,7 @@ namespace CalculateInterest.Rate.API.Tests
             // Act
             string responseString = await response.Content.ReadAsStringAsync();
 
-            RateDTO result = JsonConvert.DeserializeObject<RateDTO>(responseString);
+            RateDto result = JsonConvert.DeserializeObject<RateDto>(responseString);
 
             // Assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
