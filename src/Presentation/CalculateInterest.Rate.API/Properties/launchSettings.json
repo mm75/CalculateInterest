@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "CalculateInterest.API": {
+    "CalculateInterest.Rate.API": {
       "commandName": "Project",
       "launchBrowser": false,
       "launchUrl": "swagger",

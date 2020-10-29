@@ -1,8 +1,8 @@
 using System;
-using CalculateInterest.API.Extensions;
 using CalculateInterest.Application.Http;
 using CalculateInterest.Application.Interfaces;
 using CalculateInterest.Application.Services;
+using CalculateInterest.Compute.API.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -10,7 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Refit;
 
-namespace CalculateInterest.API
+namespace CalculateInterest.Compute.API
 {
     public class Startup
     {

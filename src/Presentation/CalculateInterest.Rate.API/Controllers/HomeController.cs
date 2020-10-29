@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace CalculateInterest.API.Controllers
+namespace CalculateInterest.Rate.API.Controllers
 {
     [ApiController]
     [ApiExplorerSettings(IgnoreApi = true)]

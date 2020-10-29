@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>CalculateInterest.API</RootNamespace>
+    <RootNamespace>CalculateInterest.Rate.API</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Application\CalculateInterest.Application.DTO\CalculateInterest.Application.DTO.csproj" />
+    <ProjectReference Include="..\..\Application\CalculateInterest.Application.DTO\CalculateInterest.Application.DTO.csproj" />
   </ItemGroup>
 
   <ItemGroup>

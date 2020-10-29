@@ -1,4 +1,3 @@
-using System;
 using System.Net.Mime;
 using System.Threading.Tasks;
 using CalculateInterest.Application.DTO.DTO;
@@ -6,7 +5,7 @@ using CalculateInterest.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace CalculateInterest.API.Controllers
+namespace CalculateInterest.Compute.API.Controllers
 {
     [ApiController]
     [Route("calculajuros")]

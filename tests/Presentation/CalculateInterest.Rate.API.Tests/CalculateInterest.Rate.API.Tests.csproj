@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\src\Presentation\Compute\CalculateInterest.Compute.API\CalculateInterest.Compute.API.csproj" />
+    <ProjectReference Include="..\..\..\src\Presentation\CalculateInterest.Rate.API\CalculateInterest.Rate.API.csproj" />
   </ItemGroup>
 
 </Project>

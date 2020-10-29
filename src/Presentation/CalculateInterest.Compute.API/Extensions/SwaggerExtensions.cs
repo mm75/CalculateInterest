@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 
-namespace CalculateInterest.API.Extensions
+namespace CalculateInterest.Compute.API.Extensions
 {
     public static class SwaggerExtensions
     {
@@ -13,8 +13,8 @@ namespace CalculateInterest.API.Extensions
             {
                 c.SwaggerDoc("v1", new OpenApiInfo()
                 {
-                    Title = "Taxa de juros",
-                    Description = "Retorna taxa de juros.",
+                    Title = "Calcula Juros",
+                    Description = "Realiza o cálculo de juros.",
                     Contact = new OpenApiContact() {Name = "Mario Mendonça", Email = "mario.menodnca@gmail.com"},
                     License = new OpenApiLicense() {Name = "MIT", Url = new Uri("https://opensource.org/licenses/MIT")}
                 });
