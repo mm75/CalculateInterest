@@ -11,7 +11,7 @@ using Newtonsoft.Json;
 using Xunit;
 using ApplicationException = CalculateInterest.Core.ApplicationException;
 
-namespace CalculateInterest.Compute.Tests
+namespace CalculateInterest.Compute.API.Tests
 {
     public class ComputeControllerTests
     {
@@ -35,14 +35,17 @@ namespace CalculateInterest.Compute.Tests
         
         [Fact(DisplayName = "Executar o cálculo da taxa de juros.")]
         [Trait("Category", "Compute")]
-        public async Task Executar_Calculo_De_Juros()
+        public async Task ComputeController_Get_ExecutarCalculoDeJuros()
         {
+            // Arrange
             HttpResponseMessage response = await _httpClient.GetAsync("calculajuros?initialValue=100&time=5");
 
+            // Act
             string responseString = await response.Content.ReadAsStringAsync();
 
             ComputeDTO result = JsonConvert.DeserializeObject<ComputeDTO>(responseString);
 
+            // Assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
             Assert.NotNull(result);
             Assert.Equal(105.10, result.Result);
@@ -50,14 +53,14 @@ namespace CalculateInterest.Compute.Tests
         
         [Fact(DisplayName = "Retornar erro ao validar se o valor inicial é menor ou igual a zero.")]
         [Trait("Category", "Compute")]
-        public async Task Validar_Valor_Inicial_Menor_Ou_Igual_Zero_Retorna_Erro()
+        public async Task ComputeController_Get_DeveRetornarErroAoValidarValorInicialMenorOuIgualZero()
         {
             await Assert.ThrowsAsync<ApplicationException>(() => _httpClient.GetAsync("calculajuros?initialValue=0&time=5"));
         }
         
         [Fact(DisplayName = "Retornar erro ao validar se o mês é menor ou igual a zero.")]
         [Trait("Category", "Compute")]
-        public async Task Validar_Mes_Menor_Ou_Igual_Zero_Retorna_Erro()
+        public async Task ComputeController_Get_DeveRetornarErroAoValidarMesMenorOuIgualZero()
         {
             await Assert.ThrowsAsync<ApplicationException>(() => _httpClient.GetAsync("calculajuros?initialValue=100&time=0"));
         }

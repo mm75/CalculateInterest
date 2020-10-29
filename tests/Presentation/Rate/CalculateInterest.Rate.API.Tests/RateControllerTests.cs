@@ -10,7 +10,7 @@ using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
 using Xunit;
 
-namespace CalculateInterest.Rate.Tests
+namespace CalculateInterest.Rate.API.Tests
 {
     public class RateControllerTests
     {
@@ -34,14 +34,17 @@ namespace CalculateInterest.Rate.Tests
         
         [Fact(DisplayName = "Retorna taxa de juros.")]
         [Trait("Category", "Rate")]
-        public async Task Retorna_Taxa_De_Juros()
+        public async Task RateController_Get_RetornaTaxaDeJuros()
         {
+            // Arrange
             HttpResponseMessage response = await _httpClient.GetAsync("taxaJuros");
 
+            // Act
             string responseString = await response.Content.ReadAsStringAsync();
 
             RateDTO result = JsonConvert.DeserializeObject<RateDTO>(responseString);
 
+            // Assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
             Assert.NotNull(result);
             Assert.Equal(0.01, result.Value);
