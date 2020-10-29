@@ -1,6 +1,6 @@
 ## Calculate Interest
 
-Projeto desenvolvido com o objetivo de calcular taxa de juros.
+Projeto desenvolvido para realizar cálculos de taxa de juros.
 
 ### Projetos
 
