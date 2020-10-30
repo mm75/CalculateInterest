@@ -2,7 +2,6 @@ using System.Net.Mime;
 using CalculateInterest.Application.DTO.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace CalculateInterest.Rate.API.Controllers
 {
