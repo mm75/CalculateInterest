@@ -1,1 +1,0 @@
-/home/mario/workspace/CalculateInterest/.sonarqube/out/2
