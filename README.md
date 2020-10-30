@@ -93,8 +93,6 @@ curl --request GET \
 - [Refit](https://www.nuget.org/packages/Refit.HttpClientFactory/)
 - [Docker](https://www.docker.com/)
 
-### Resultado da análise de qualidade do código
-![](sonar.jpg)
 
 ### Autor
 * **Mario Mendonça** - *Contribuidor* - [Mario Mendonça](https://lab.coodesh.com/mario.mendonca)
