@@ -2,6 +2,7 @@ using System.Net.Mime;
 using System.Threading.Tasks;
 using CalculateInterest.Application.DTO.DTO;
 using CalculateInterest.Application.Interfaces;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -11,7 +12,6 @@ namespace CalculateInterest.Compute.API.Controllers
     [Route("calculajuros")]
     public class ComputeController : ControllerBase
     {
-        private readonly ILogger<ComputeController> _logger;
         private readonly IRunService _runService;
 
         /// <summary>
@@ -21,7 +21,6 @@ namespace CalculateInterest.Compute.API.Controllers
         /// <param name="runService">The service param.</param>
         public ComputeController(ILogger<ComputeController> logger, IRunService runService)
         {
-            _logger = logger;
             _runService = runService;
         }
 
@@ -30,12 +29,12 @@ namespace CalculateInterest.Compute.API.Controllers
         /// </summary>
         /// <returns>The created <see cref="IActionResult"/> for the response.</returns>
         [HttpGet]
+        [Consumes(MediaTypeNames.Application.Json)]
         [Produces(MediaTypeNames.Application.Json)]
-        [ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Get))]
+        [ProducesResponseType(typeof(ComputeDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<ComputeDto>> Get(double initialValue, int time)
         {
-            _logger.LogInformation($"Realizando o cálculo da taxa de juros.");
-            
             return Ok(await _runService.Run(initialValue, time));
         }
     }

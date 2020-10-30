@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using CalculateInterest.Application.DTO.DTO;
 using CalculateInterest.Application.Http;
 using CalculateInterest.Application.Interfaces;
+using Microsoft.Extensions.Logging;
 
 namespace CalculateInterest.Application.Services
 {

@@ -1,5 +1,6 @@
 using System.Net.Mime;
 using CalculateInterest.Application.DTO.DTO;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -9,28 +10,17 @@ namespace CalculateInterest.Rate.API.Controllers
     [Route("taxaJuros")]
     public class RateController : ControllerBase
     {
-        private readonly ILogger<RateController> _logger;
-
-        /// <summary>
-        /// Method responsible for initializing the controller.
-        /// </summary>
-        /// <param name="logger">The logger param.</param>
-        public RateController(ILogger<RateController> logger)
-        {
-            _logger = logger;
-        }
-
         /// <summary>
         /// Method responsible for the action.
         /// </summary>
         /// <returns>The created <see cref="IActionResult"/> for the response.</returns>
         [HttpGet]
+        [Consumes(MediaTypeNames.Application.Json)]
         [Produces(MediaTypeNames.Application.Json)]
-        [ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Get))]
+        [ProducesResponseType(typeof(RateDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public ActionResult<RateDto> Get()
         {
-            _logger.LogInformation($"Buscando taxa de juros.");
-            
             return Ok(new RateDto {Value = 0.01});
         }
     }

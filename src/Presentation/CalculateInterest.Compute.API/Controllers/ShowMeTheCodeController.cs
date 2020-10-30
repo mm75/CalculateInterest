@@ -1,7 +1,7 @@
 using System.Net.Mime;
 using CalculateInterest.Application.DTO.DTO;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace CalculateInterest.Compute.API.Controllers
 {
@@ -9,20 +9,15 @@ namespace CalculateInterest.Compute.API.Controllers
     [Route("showmethecode")]
     public class ShowMeTheCodeController : ControllerBase
     {
-        private readonly ILogger<ShowMeTheCodeController> _logger;
-
-        public ShowMeTheCodeController(ILogger<ShowMeTheCodeController> logger)
-        {
-            _logger = logger;
-        }
-
         /// <summary>
         /// Method responsible for the action.
         /// </summary>
         /// <returns>The created <see cref="IActionResult"/> for the response.</returns>
         [HttpGet]
+        [Consumes(MediaTypeNames.Application.Json)]
         [Produces(MediaTypeNames.Application.Json)]
-        [ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Get))]
+        [ProducesResponseType(typeof(ShowMeTheCodeDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public ActionResult<ShowMeTheCodeDto> Index()
         {
             return Ok(new ShowMeTheCodeDto {UrlGitHub = "https://github.com/mm75/CalculateInterest"});
