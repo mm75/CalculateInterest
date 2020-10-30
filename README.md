@@ -63,7 +63,7 @@ Siga estas etapas para para rodar o projeto em produção:
 ### Exemplos
 
 #### API - Taxa de juros
-```
+```shell
 curl --request GET \
   --url http://localhost:5000/taxaJuros \
   --header 'accept: application/json'
@@ -74,7 +74,7 @@ curl --request GET \
 ```
 
 #### API - Cálculo de juros
-```
+```shell
 curl --request GET \
   --url 'http://localhost:6005/calculajuros?initialValue=100&time=5' \
   --header 'accept: application/json'
@@ -88,10 +88,13 @@ curl --request GET \
 
 - [C# 8.0](https://docs.microsoft.com/pt-br/dotnet/csharp/)
 - [ASP.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)
-- ASP.NET WebApi Core 3.1
+- [ASP.NET WebApi Core 3.1](https://dotnet.microsoft.com/apps/aspnet)
 - [.NET Core Native DI](https://docs.microsoft.com/pt-br/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1)
 - [Refit](https://www.nuget.org/packages/Refit.HttpClientFactory/)
 - [Docker](https://www.docker.com/)
+
+Resultado da análiseda qualidade do código
+![](converage.jpg)
 
 ### Autor
 * **Mario Mendonça** - *Contribuidor* - [Mario Mendonça](https://lab.coodesh.com/mario.mendonca)
